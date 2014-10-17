@@ -21,6 +21,6 @@ module.exports = (robot) ->
     msg.send "lets shop betch!"
   robot.hear /whats\s+(?:for)\s*(?:sale)?\s*(\d+)?/i, (msg) ->
     msg.send "you can look yourself betch!"
-    shop_betch msg
+    
 
 
