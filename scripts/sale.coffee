@@ -21,7 +21,8 @@ module.exports = (robot) ->
     msg.send "lets shop betch!"
   robot.respond /whats\s+(?:for)\s*(?:sale)?\s*(\d+)?/i, (msg) ->
     msg.send "you can look yourself betch!"
-shop_betch = (msg, count) ->
+    shop_betch msg
+shop_betch = (msg) ->
   msg.http('http://www.hm.com/us/subdepartment/sale?Nr=4294964541')
     .query(format: 'xml')
     .get() (err, res, body) ->
