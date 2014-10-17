@@ -28,5 +28,5 @@ shop_betch = (msg) ->
     .get() (err, res, body) ->
       parser = new xml2js.Parser()
       parser.parseString body, (err, result) ->
-        msg.send parser
+        msg.send parser.toString
 
