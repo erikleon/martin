@@ -28,4 +28,6 @@ shop_betch = (msg) ->
     .get() (err, res, body) ->
       parser = new xml2js.Parser()
       parser.parseString body, (err, result) ->
+        shop = (r["#main"]["#content"]["#subDepartment"][".products"]["ul"]["li"] for r in result["body"])
         msg.send parser
+        msg.send shop
