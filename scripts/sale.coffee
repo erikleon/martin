@@ -17,7 +17,7 @@
 xml2js = require('xml2js')
 
 module.exports = (robot) ->
-  robot.listen /lets\s*(?:shop)?$/i, (msg) ->
+  robot.hear /lets\s*(?:shop)?$/i, (msg) ->
     msg.send "lets shop betch!"
   robot.respond /whats\s+(?:for)\s*(?:sale)?\s*(\d+)?/i, (msg) ->
     msg.send "you can look yourself betch!"
