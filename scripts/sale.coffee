@@ -17,7 +17,7 @@
 xml2js = require('xml2js')
 
 module.exports = (robot) ->
-  robot.respond /lets\s*(?:shop)?$/i, (msg) ->
+  robot.listen /lets\s*(?:shop)?$/i, (msg) ->
     msg.send "lets shop betch!"
   robot.respond /whats\s+(?:for)\s*(?:sale)?\s*(\d+)?/i, (msg) ->
     msg.send "you can look yourself betch!"
@@ -28,6 +28,5 @@ shop_betch = (msg) ->
     .get() (err, res, body) ->
       parser = new xml2js.Parser()
       parser.parseString body, (err, result) ->
-        shop = (r["main"]["content"]["subDepartment"]["products"]["ul"]["li"] for r in result["body"])
         msg.send parser
-        msg.send shop
+
