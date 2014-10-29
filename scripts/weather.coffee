@@ -5,9 +5,9 @@
 #   None
 #
 # Configuration
-#   HUBOT_DARK_SKY_API_KEY - 6398bcf03998b41e2ba1558f3c85314b
-#   HUBOT_DARK_SKY_DEFAULT_LOCATION - New York, NY
-#   HUBOT_DARK_SKY_UNITS - us
+#   HUBOT_DARK_SKY_API_KEY = 6398bcf03998b41e2ba1558f3c85314b
+#   HUBOT_DARK_SKY_DEFAULT_LOCATION = New York, NY
+#   HUBOT_DARK_SKY_UNITS = us
 #
 # Commands:
 #   hubot weather - Get the weather for HUBOT_DARK_SKY_DEFAULT_LOCATION
