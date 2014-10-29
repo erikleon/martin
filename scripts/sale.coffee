@@ -8,8 +8,8 @@
 #   None
 #
 # Commands:
-#   hubot lets shop - a randomly selected HNM sale
-#   hubot whats for sale - if a bunch of is on sale let me know!
+#   lets shop - a randomly selected HNM sale
+#   whats for sale - if a bunch of is on sale let me know!
 #
 # Author:
 #   erikleon
