@@ -10,7 +10,7 @@
 #   HUBOT_DARK_SKY_UNITS (optional - us, si, ca, or uk)
 #
 # Commands:
-#   hubot weather - Get the weather for HUBOT_DARK_SKY_DEFAULT_LOCATION
+#   hubot weather - Get the weather for Dressler Office
 #   hubot weather <location> - Get the weather for <location>
 #
 # Notes:
