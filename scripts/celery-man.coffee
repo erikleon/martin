@@ -54,8 +54,8 @@ module.exports = (robot) ->
   robot.respond /.*flarhgunnstow/i, (msg) ->
     msg.send "http://i.imgur.com/X0sNq.gif"
   robot.respond /.*nude tayne/, (msg) ->
-    msg.send "http://i.giphy.com/AG7LPcLILtfPy.gif"
     msg.send "Not computing. Please repeat:"
+    msg.send "http://i.giphy.com/AG7LPcLILtfPy.gif"
   robot.respond /NUDE TAYNE/, (msg) ->
     msg.send "http://i.giphy.com/gPRWzhrz5VkSQ.gif"
   robot.hear /yes/i, (msg) ->
