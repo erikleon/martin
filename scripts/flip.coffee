@@ -2,7 +2,7 @@
 #   When things aren't going well, you must flip it. (╯°□°）╯︵ ʇoqnɥ
 #
 # Dependencies:
-#   "flip": "~0.1.1"
+#   "flip": "0.1.1"
 #
 # Commands:
 #   hubot flip <text> - express your anger
