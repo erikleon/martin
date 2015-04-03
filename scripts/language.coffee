@@ -21,6 +21,7 @@ module.exports = (robot) ->
     'ass',
     'bastard',
     'bitch',
+    'bill cosby',
     'bugger',
     'bollocks',
     'bullshit',
