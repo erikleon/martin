@@ -15,8 +15,6 @@
 module.exports = (robot) ->
 
   words = [
-    'arsch',
-    'arschloch',
     'arse',
     'ass',
     'bastard',
@@ -24,13 +22,9 @@ module.exports = (robot) ->
     'bill cosby',
     'bugger',
     'bollocks',
-    'bullshit',
     'cock',
     'cocksucker',
     'cunt',
-    'damn',
-    'damnit',
-    'depp',
     'dick',
     'dike',
     'dipshit',
@@ -41,20 +35,15 @@ module.exports = (robot) ->
     'fuck',
     'fucked',
     'fucking',
-    'hell',
     'kacke',
+    'patriarchy',
     'piss',
-    'pisse',
-    'scheisse',
-    'schlampe',
     'skank',
-    'shit',
     'shithead',
     'shitzipper',
     'slut',
     'wank',
-    'whore',
-    'wichser'
+    'whore'
   ]
   regex = new RegExp('(?:^|\\s)(' + words.join('|') + ')(?:\\s|\\.|\\?|!|$)', 'i');
 
