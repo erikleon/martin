@@ -58,7 +58,7 @@ module.exports = (robot) ->
     data[msg.envelope.user.id] += weight;
     robot.brain.set('language_credits', data)
     robot.brain.save()
-    msg.send '@' + msg.envelope.user.name + ', you have been fined ' + weight + ' credit' + (if weight != 1 then "s" else "") + ' for being a potty mouth.';
+    msg.send '@' + msg.envelope.user.mention_name + ', you have been fined ' + weight + ' credit' + (if weight != 1 then "s" else "") + ' for being a potty mouth.';
 
   robot.respond /potty score/i, (msg) ->
     data = robot.brain.get('language_credits')
