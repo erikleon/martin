@@ -9,6 +9,8 @@
 #
 # Commands:
 #   hubot potty score - show the current scoreboard for curse words
+#   hubot set potty score for <user> [to <score>] - set the user's current score (admin only)
+#   hubot reset potty score - clear scoreboard (admin only)
 #
 # Author:
 #   whitman, jan0sch, ttsanev
@@ -48,16 +50,18 @@ module.exports = (robot) ->
   };
   regex = new RegExp('(?:^|\\s)(' + Object.keys(words).join('|') + ')((?=s)es|s)?(?:\\s|\\.|\\?|!|$)', 'i');
 
+  setScore = (id, score, add=false) ->
+    data = robot.brain.get('language_credits') or {};
+    data[id] or= 0;
+    if add
+      data[id] += score;
+    else
+      data[id] = score;
+    robot.brain.set('language_credits', data);
+    robot.brain.save();
+
   robot.hear regex, (msg) ->
-    weight = words[msg.match[1]]||1;
-    data = robot.brain.get('language_credits');
-    if !data
-      data = {};
-    if !data[msg.envelope.user.id]
-      data[msg.envelope.user.id] = 0;
-    data[msg.envelope.user.id] += weight;
-    robot.brain.set('language_credits', data)
-    robot.brain.save()
+    setScore(id, words[msg.match[1]]||1, true);
     msg.send '@' + msg.envelope.user.mention_name + ', you have been fined ' + weight + ' credit' + (if weight != 1 then "s" else "") + ' for being a potty mouth.';
 
   robot.respond /potty score/i, (msg) ->
@@ -74,3 +78,20 @@ module.exports = (robot) ->
         msg.send "Scores: \n" + resp
       else
         msg.send "No scores found for the current users"
+
+  robot.respond /(?:re)?set potty score(?: for @?(.+?)(?: to (\d+))?)?$/, (msg) ->
+    if robot.auth and robot.auth.hasRole(msg.envelope.user, 'admin')
+      score = (if msg.match[2] then msg.match[2] else 0)|0;
+      if msg.match[1]
+        user = robot.brain.userForName(msg.match[1]);
+        if user
+          setScore(user.id, score);
+          msg.send "Score for #{user.name} set to #{score}";
+        else
+          msg.send "I don't know who #{msg.match[1]} is";
+      else
+        robot.brain.set('language_credits', {});
+        robot.brain.save();
+        msg.send "Potty scores reset to 0";
+    else
+      msg.send "You can't do that"
