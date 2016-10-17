@@ -9,4 +9,4 @@
 
 module.exports = (robot) ->
   robot.respond /shake cam/i, (msg) ->
-    msg.send 'http://www.shakeshack.com/camera.jpg'
+    msg.send 'https://cdn.shakeshack.com/camera.jpg'
